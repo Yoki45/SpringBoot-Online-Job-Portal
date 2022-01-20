@@ -54,8 +54,8 @@ public class MailController {
 
 
 
-        helper.setFrom("buzzzinga101@gmail.com");
-        helper.setTo("okiyostephen@gmail.com");
+        helper.setFrom("@gmail.com");
+        helper.setTo("@gmail.com");
 
         String mailSubject = fullname +  " " + "has send you a message";
         String mailBody = "<p><b>Sender Name:</b>" + fullname + "</p>";
