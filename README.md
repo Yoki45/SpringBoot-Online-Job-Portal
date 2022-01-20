@@ -15,4 +15,4 @@ A registered user can perform the following functionalities:
  3.Apply for the job by Through an email.
  
  
- Screenshots of the Application.
+
