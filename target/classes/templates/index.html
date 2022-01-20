@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>BuzzZinga | Home</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">BuzzZinga
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+
+<div class="row">
+    <div class="col-lg-3">
+        <a th:href="@{/jobpost/new}" class="btn btn-primary btn-sm mb-3"> Post New Job</a>
+    </div>
+</div><div class ="container">
+    <div class = "row">
+        <h1> Available Jobs </h1>
+
+    </div>
+
+
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th>Job Title</th>
+            <th> Job Description</th>
+            <th> Pricing </th>
+            <th> Location</th>
+            <th> Duration </th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "jobPost: ${jobPosts}">
+            <td th:text = "${jobPost.jobTittle}"></td>
+            <td th:text = "${jobPost.jobDescription}"></td>
+            <td th:text = "${jobPost.price}"></td>
+             <td th:text = "${jobPost.location}"></td>
+              <td th:text = "${jobPost.duration}"></td>
+            <td>
+                <a  th:href = "@{/contact}"  class = "btn btn-primary">Apply</a>
+
+                <a th:href = "@{/index/{id}(id=${jobPost.id})}"
+                   class = "btn btn-danger">Delete</a>
+
+
+            </td>
+        </tr>
+
+
+        </tbody>
+
+    </table>
+
+
+
+</div>
+</body>
+</html>
